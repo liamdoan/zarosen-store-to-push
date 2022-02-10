@@ -46,7 +46,7 @@ app.use("/api/orders", orderRoute)
 
 app.use("/api/checkout", stripeRoute)
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('*', (_, res) => {
     res.sendFile(path.join(__dirname, '/client/build', 'index.html'), function(err){
