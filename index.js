@@ -18,7 +18,7 @@ const path = require("path")
 mongoose
     .connect(process.env.MONGO_URL)
     .then(() => console.log("connect successful"))
-    .catch(() => {
+    .catch((error) => {
         console.log(error)
     })
 

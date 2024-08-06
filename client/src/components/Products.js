@@ -33,12 +33,12 @@ const Products = ({category, color, filters, sort}) => {
             try{  
                 const res = await axios.get(
                     category 
-                    ? `https://zarosen-clothing-store.herokuapp.com/api/products?category=${category}`
-                    // ? `http://localhost:5000/api/products?category=${category}`
-                    // : color
-                    // ? `http://localhost:5000/api/products?color=${color}`
-                    : "https://zarosen-clothing-store.herokuapp.com/api/products"
-                    // : "http://localhost:5000/api/products"
+                    //? `https://zarosen-clothing-store.herokuapp.com/api/products?category=${category}`
+                     ? `http://localhost:5000/api/products?category=${category}`
+                     : color
+                     ? `http://localhost:5000/api/products?color=${color}`
+                    //: "https://zarosen-clothing-store.herokuapp.com/api/products"
+                     : "http://localhost:5000/api/products"
                     )
                 // console.log(res)
                 setProducts(res.data)
