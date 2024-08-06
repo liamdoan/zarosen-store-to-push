@@ -30,7 +30,11 @@ mongoose
 //     });
 
 
-app.use(cors())
+app.use(cors({
+    origin: ["https://zarosen-store-to-push.onrender.com"],
+    methods: ["POST", "GET"],
+    credentials: true
+}))
 
 app.use(express.json())
 
