@@ -33,11 +33,11 @@ const Products = ({category, color, filters, sort}) => {
             try{  
                 const res = await axios.get(
                     category 
-                    ? `https://zarosen-store-to-push-api.vercel.app/api/products?category=${category}`
+                    ? `https://zarosen-store-to-push-backend.vercel.app/api/products?category=${category}`
                     // ? `http://localhost:5000/api/products?category=${category}`
                     // : color
                     // ? `http://localhost:5000/api/products?color=${color}`
-                    : "https://zarosen-store-to-push-api.vercel.app/api/products"
+                    : "https://zarosen-store-to-push-backend.vercel.app/api/products"
                     // : "http://localhost:5000/api/products"
                     )
                 // console.log(res)

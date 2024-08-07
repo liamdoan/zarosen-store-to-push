@@ -375,7 +375,7 @@ const Navbar = () => {
 
     const getProducts = () => {
         //fetch(`http://localhost:5000/api/products?category=${category}`)
-        fetch(`https://zarosen-store-to-push-api.vercel.app/api/products?category=${category}`)   
+        fetch(`https://zarosen-store-to-push-backend.vercel.app/api/products?category=${category}`)   
     //     .then(res => res.json())
     //     .then(data => {
     //         console.log(data);
