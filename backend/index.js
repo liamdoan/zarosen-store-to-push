@@ -31,7 +31,7 @@ mongoose
 
 
 app.use(cors({
-    origin: ["https://zarosen-store-to-push-client.vercel.app/"],
+    origin: ["https://zarosen-store-to-push-backend.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true
 }))
