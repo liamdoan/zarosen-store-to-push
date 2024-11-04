@@ -17,10 +17,9 @@ const Container = styled.div`
 width: 100%;
 `
 
-// -----------------------------------------LOGO-------------------------------
+// LOGO
 const Logo = styled.div`
 position: relative;
-/* background-color: blue; */
 margin: 3rem 0 0 0;
 display: flex;
 align-items: center;
@@ -30,7 +29,6 @@ cursor: pointer;
 
 const Img = styled.img`
 align-self: center;
-/* background-color: pink; */
 padding: 5px;
 width: 15%;
 min-width: 180px;
@@ -38,7 +36,6 @@ height: auto;
 `
 
 const LogoName = styled.p`
-/* background-color: rgba(187, 187, 64, 0.3); */
 position: absolute;
 top:50%;
 font-size: clamp(1rem, 2.1vw, 4rem);
@@ -47,8 +44,6 @@ font-weight: 600;
 font-style: italic;
 letter-spacing: 8px;
 left: 50%;;
-/* right: 0;
-bottom: 0; */
 color: #CBBA9C;
 transform: translate(-50%, -37%);
 `
@@ -59,11 +54,9 @@ color: black;
 
 
 const InfoContainer = styled.div`
-/* background-color: red; */
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
-/* max-width: 100%; */
 padding: 3rem 0;
 
 @media screen and (max-width: 650px) {
@@ -72,11 +65,9 @@ padding: 3rem 0;
 }
 `
 
-// -----------------------------------------LEFT-------------------------------
+// LEFT
 const Left = styled.div`
-/* background-color: green; */
 flex: 1;
-/* min-width: 280px; */
 display: flex;
 flex-direction: column;
 padding: 0 20px;
@@ -89,7 +80,6 @@ border-right: 1px solid #d1d1d1;
 `
 
 const Title = styled.p`
-/* background-color: blue; */
 text-transform: uppercase;
 font-size: 1.5rem;
 color: #CBBA9C;
@@ -100,7 +90,6 @@ margin-bottom: 1rem;
 `
 
 const Description = styled.p`
-/* background-color: pink; */
 font-size: 12.5px;
 text-align: center;
 margin: 0 1rem 14px 1rem;
@@ -108,13 +97,11 @@ font-weight: 300;
 `
 
 const SocialContainer = styled.div`
-/* background-color: blue; */
 display: flex;
 justify-content: center;
 `
 
 const SocialIcon = styled.a`
-/* background-color: pink; */
 margin: 5px 5px;
 width: 40px;
 height: 40px;
@@ -132,37 +119,31 @@ transition: 0.3s ease-in-out;
 }
 `
 
-// ----------------------------------CENTER----------------------
+// CENTER
 const Center = styled.div`
-/* background-color: teal; */
 flex: 1;
-/* min-width: 280px; */
 padding: 0 20px;
 border-right: 1px solid #d1d1d1;
 margin-bottom: 2.5rem;
 `
 
 const LinkWrap = styled.div`
-/* background-color: yellow; */
 display: flex;
 /* grid-template-columns: repeat(2, minmax(80px, 120px)); */
 `
 
 const LeftColumn = styled.div`
-/* background-color: red; */
 flex: 1;
 display: flex;
 flex-direction: column;
 `
 const RightColumn = styled.div`
-/* background-color: gray; */
 flex: 1;
 display: flex;
 flex-direction: column;
 `
 
 const LinkItem = styled(Link)`
-/* background-color: yellow; */
 width: 90%;
 margin: 4px 0px;
 font-size: 12px;
@@ -175,11 +156,9 @@ color: black;
 }
 `
 
-// -----------------------------------right------------------------------------
+// RIGHT
 const Right = styled.div`
-/* background-color: orange; */
 flex: 1;
-/* min-width: 280px; */
 padding: 0 20px;
 display: flex;
 flex-direction: column;
@@ -195,7 +174,7 @@ font-size: 12px;
 font-weight: 300;
 `
 
-// --------------------------COPY RIGHT------------------------
+// COPY RIGHT
 const CopyRightContainer = styled.div`
 min-height: 70px;
 background-color: black;
@@ -209,7 +188,6 @@ display: flex;
 
 const CopyRightContent = styled.div`
 flex: 1;
-/* background-color: orange; */
 display:flex;
 justify-content: center;
 align-items: center;
@@ -217,7 +195,6 @@ padding: 10px 1rem;
 `
 
 const P = styled.p`
-/* background-color: blue; */
 color: white;
 font-size: 12px;
 font-weight: 300;
@@ -229,7 +206,6 @@ font-weight: 300;
 
 const PaymentImgContainer = styled.div`
 flex: 1;
-/* background-color: teal; */
 display:flex;
 justify-content: center;
 align-items: center;
@@ -243,7 +219,6 @@ height: auto;
 `
 
 const Footer = () => {
-
     const scrollHome = () => {
         scroll.scrollToTop();
     }

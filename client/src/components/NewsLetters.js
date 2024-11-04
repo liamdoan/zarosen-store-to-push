@@ -5,7 +5,6 @@ import { mobile } from '../Responsive';
 import BgImg from "../images/bg4.jpg"
 
 const Container = styled.div`
-/* background-color: #fcf5f5; */
 background: linear-gradient(to right, 
     rgba(0,0,0,0.6), 
     rgba(0,0,0,0.5)), url(${BgImg});
@@ -74,7 +73,6 @@ transition: 0.2s ease-in-out;
 `
 
 const NewsLetters = () => {
-
     const [successMsg, setSuccessMsg] = useState()
 
     const handleSubmit = (e) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import { login } from '../redux/apiCalls'
 import { mobile } from '../Responsive'
@@ -91,9 +91,7 @@ margin: 5px 0;
 color: red;
 `
 
-
 const Item = styled(Link)`
-/* background-color: pink; */
 margin: 25px 0;
 color: black;
 font-style: italic;
@@ -106,12 +104,12 @@ cursor: pointer;
 `
 
 const Login = () => {
-
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const dispatch = useDispatch()
-    const {isFetching, error} = useSelector(state => state.user)
 
+    const dispatch = useDispatch()
+
+    const {isFetching, error} = useSelector(state => state.user)
     const user = useSelector(state => state.user.currentUser);
 
     const handleLogin = (e) => {
@@ -122,36 +120,36 @@ const Login = () => {
 
     return (
         <> 
-        {user 
-        ? <Outlet />
-        : (
-            <Container>
-                <Wrapper>
-                    <Title>Log In</Title>
-                    <Form>
-                        <P>Username <Span>*</Span></P>
-                            <Input 
-                                onChange={(e) => setUsername(e.target.value)}/>
-                        <P>Password <Span>*</Span></P>
-                            <Input 
-                                type="password"
-                                onChange={(e) => setPassword(e.target.value)}/>
-                    </Form>
-                    <Button
-                        onClick={handleLogin}
-                        disabled={isFetching}
+            {user 
+            ? <Outlet />
+            : (
+                <Container>
+                    <Wrapper>
+                        <Title>Log In</Title>
+                        <Form>
+                            <P>Username <Span>*</Span></P>
+                                <Input 
+                                    onChange={(e) => setUsername(e.target.value)}/>
+                            <P>Password <Span>*</Span></P>
+                                <Input 
+                                    type="password"
+                                    onChange={(e) => setPassword(e.target.value)}/>
+                        </Form>
+                        <Button
+                            onClick={handleLogin}
+                            disabled={isFetching}
                         >
                             Login 
-                    </Button>
-                    {error && <Error>Not Authorized</Error>}
-                    {/* <Link>
-                        Gorget password
-                    </Link> */}
-                       <Item to="/register">Create new account</Item>
-                </Wrapper>
-            </Container>
-            )
-        }
+                        </Button>
+                        {error && <Error>Not Authorized</Error>}
+                        {/* <Link>
+                            Gorget password
+                        </Link> */}
+                        <Item to="/register">Create new account</Item>
+                    </Wrapper>
+                </Container>
+                )
+            }
         </>
     )
 }

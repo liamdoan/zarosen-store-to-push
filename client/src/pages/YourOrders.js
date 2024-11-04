@@ -1,17 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../Responsive';
-
 import { useNavigate } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
-
 import { clearOrders} from '../redux/yourOrdersRedux';
-
 import { useDispatch } from 'react-redux';
-
 import { Link } from 'react-router-dom';
-
 
 const Container = styled.div`
 width: 100%;
@@ -110,17 +104,14 @@ cursor: pointer;
 }
 `
 
-
-// -------------------------------------------BOTTOM-------------------------------------------
-
+// BOTTOM
 const Bottom = styled.div`
 width: 100%;
 height: 100%;
 `
 
-// -------------- INFO SECTION --------------- 
+// INFO SECTION
 const Info = styled.div`
-/* background-color: yellow; */
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -128,7 +119,6 @@ height: 100%;
 `
 
 const ProductContainer = styled.div`
-/* background-color: pink; */
 flex: 1;
 height: 100%;
 min-width: 280px;
@@ -150,7 +140,6 @@ margin: 10px 1rem;
 }
 `
 const ProductDetail = styled.div`
-/* background-color: teal; */
 display: flex;
 
 @media screen and (max-width: 290px) {
@@ -159,7 +148,6 @@ display: flex;
 `
 
 const ImgContainer = styled.div`
-/* background-color: red; */
 flex: calc(3/5);
 display: flex;
 justify-content: center;
@@ -173,7 +161,6 @@ object-fit: cover;
 `
 
 const Details = styled.div`
-/* background-color: blue; */
 margin: 5px 0;
 font-weight: 300;
 flex: calc(2/5);
@@ -219,19 +206,11 @@ cursor: pointer;
 }
 `
 
-
 const YourOrder = () => {
-
     const orders = useSelector(state => state.orders)
-    console.log(orders)
-
-    
     const cart = useSelector(state => state.cart)
-    // console.log(cart)
-
 
     const wish = useSelector(state => state.wish)
-
     const dispatch = useDispatch()
 
     const handleClickRemove = (e) => {
@@ -243,40 +222,40 @@ const YourOrder = () => {
 
     return (
         <>
-        <h1>Your Orders PAGE</h1>
-        <Container>
-            <Wrapper>
-                <Title>YOUR ORDERS</Title>
-                <Top>
-                    <TopButton>Continue shopping</TopButton>
-                    <TopTextsWrap>
-                        <TopText to="/cart">Shopping bag ({cart.products.length})</TopText>
-                        <TopText to="/wish">Wishlist ({wish.products.length})</TopText>
-                    </TopTextsWrap>
-                    <ClearBagButton onClick={handleClickRemove}>Clear Orders</ClearBagButton>
-                </Top>
-                <Bottom>
-                    <Info>
-                        {wish.products.map(product => (
-                            <ProductContainer>
-                                <ProductDetail>
-                                    <ImgContainer>
-                                        <Img src={product.img}/>
-                                    </ImgContainer>
-                                    <Details>
-                                        <ProductName>{product.title}</ProductName>
-                                        {/* <ProductColor >Color: <Color color={product.color}/></ProductColor> */}
-                                        {/* <ProductSize >Size: {product.size}</ProductSize> */}
-                                        <ProductPrice > £{product.price}</ProductPrice>
-                                        <Button to={`/product/${product._id}`}>See more</Button>
-                                    </Details>
-                                </ProductDetail>
-                        </ProductContainer>
-                        ))}
-                    </Info>
-                </Bottom>
-            </Wrapper>
-        </Container>
+            <h1>Your Orders PAGE</h1>
+            <Container>
+                <Wrapper>
+                    <Title>YOUR ORDERS</Title>
+                    <Top>
+                        <TopButton>Continue shopping</TopButton>
+                        <TopTextsWrap>
+                            <TopText to="/cart">Shopping bag ({cart.products.length})</TopText>
+                            <TopText to="/wish">Wishlist ({wish.products.length})</TopText>
+                        </TopTextsWrap>
+                        <ClearBagButton onClick={handleClickRemove}>Clear Orders</ClearBagButton>
+                    </Top>
+                    <Bottom>
+                        <Info>
+                            {wish.products.map(product => (
+                                <ProductContainer>
+                                    <ProductDetail>
+                                        <ImgContainer>
+                                            <Img src={product.img}/>
+                                        </ImgContainer>
+                                        <Details>
+                                            <ProductName>{product.title}</ProductName>
+                                            {/* <ProductColor >Color: <Color color={product.color}/></ProductColor> */}
+                                            {/* <ProductSize >Size: {product.size}</ProductSize> */}
+                                            <ProductPrice > £{product.price}</ProductPrice>
+                                            <Button to={`/product/${product._id}`}>See more</Button>
+                                        </Details>
+                                    </ProductDetail>
+                            </ProductContainer>
+                            ))}
+                        </Info>
+                    </Bottom>
+                </Wrapper>
+            </Container>
         </>
     )
 }

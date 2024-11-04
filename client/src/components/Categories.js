@@ -7,8 +7,7 @@ import { mobile } from '../Responsive';
 const Container = styled.div`
 display: flex;
 justify-content: space-between;
-align-items: center;  
-/* padding: 1rem 0; */
+align-items: center;
 background-color: black;
 max-height: 80vh;
 overflow: hidden;

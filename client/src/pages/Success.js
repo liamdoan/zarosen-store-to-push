@@ -58,8 +58,7 @@ z-index: 100;
 `
 
 const Success = () => {
-  
-  const cart = useSelector(state => state.cart)
+    const cart = useSelector(state => state.cart)
 
   // const handleClick = () => {
   //   dispatch(
@@ -67,16 +66,15 @@ const Success = () => {
   // )
   // }
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const location = useLocation()
 
-  const location = useLocation()
-
-  return (
-    <Container>
-        <H1>PAYMENT SUCCESSFUL</H1>
-        <P>Your orders have been successfully placed</P>
-        <Button to="/">Continue shopping</Button>
-    </Container>
+    return (
+        <Container>
+            <H1>PAYMENT SUCCESSFUL</H1>
+            <P>Your orders have been successfully placed</P>
+            <Button to="/">Continue shopping</Button>
+        </Container>
     )
 };
 

@@ -24,12 +24,10 @@ height: calc(100vh - 125px);
 position: relative;
 width: 100%;
 display: flex;
-/* overflow-x: hidden; */
 overflow: hidden;
 `
 
 const Wrapper = styled.div`
-/* background-color: blue; */
 position: relative;
 height: 100%;
 display: flex;
@@ -38,10 +36,8 @@ transition: 1.5s ease-in-out;
 `
 
 const Slide = styled.div`
-/* background-color: pink; */
 padding: 0 calc((100vw - 1300px) / 4);
 position: relative;
-/* ----------------------------------------------------------------------------------- */
 max-width: 100%;
 width: 100vw;
 height: 100%;
@@ -80,21 +76,18 @@ background: ${({layer}) => layer};
 border: none;
 outline: none;
 border-style: none;
-/* z-index: -9; */
 
 @media screen and (max-width: 600px) {
     width: 100%;
 }
 `
 
-// ---------------------SLIDE 3 INFO--------------------------
+// SLIDE 3 INFO
 const InlineInfoWrapper = styled.div`
-/* background-color: teal; */
 width: 100%;
 height: 100%;
 position: absolute;
 top: 0;
-/* bottom: 0; */
 text-align: center;
 display: flex;
 flex-direction: column;
@@ -105,7 +98,6 @@ transform: rotate(180deg);
 z-index: 10;
 
 @media screen and (max-width: 600px) {
-    /* background-color: greenyellow; */
     padding: 0 10px;
     display: flex;
     align-items: center;
@@ -116,7 +108,6 @@ z-index: 10;
 `
 
 const InlineTitle = styled.h1`
-/* background-color: white; */
 color:#CBBA9C;
 text-transform: uppercase;
 font-weight: 700;
@@ -169,7 +160,7 @@ z-index: 100;
     }
 `
 
-// ----------------------------------------------------------------------
+// -------------------------
 const ImgWrap3 = styled.div`
 position: absolute;
 top:0;
@@ -208,7 +199,6 @@ z-index: -6;
 border: none;
 outline: none;
 border-style: none;
-/* ***********************************************************************' */
 z-index: -6;
 overflow:hidden;
 
@@ -241,7 +231,6 @@ z-index: -6;
 
 const InfoContainer = styled.div`
 position: relative;
-/* background-color: green; */
 padding: 1rem;
 height: calc(100vh - 100px);
 flex: 1;
@@ -256,11 +245,11 @@ const InfoWrapper = styled.div`
 margin: 0 1rem;
 padding: 10px 30px;
 
-/* ------------------custom-style----------------------- */
+/* custom-style */
 border-left: ${({borderLeft}) => borderLeft};
 border-right: ${({borderRight}) => borderRight};
 
-/* -----------------slide 3 only------------------ */
+/* slide 3 only */
 position: ${({positionAbs}) => positionAbs};
 top: ${({top}) => top};
 bottom: ${({bottom}) => bottom};
@@ -295,8 +284,6 @@ font-style: italic;
 color:#CBBA9C;
 font-size: clamp(12px, 1.1vw, 3rem);
 font-weight: 300;
-
-/* background-color: blue; */
 margin: 10px 0;
 `
 
@@ -337,7 +324,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 position: absolute;
-/* top: 0; */
 bottom: 12%;
 left: ${({direction}) => (direction === "left" && "35%")};
 right: ${({direction}) => (direction === "right" && "35%")};
@@ -359,8 +345,6 @@ z-index: 2;
 `
 
 const Slider = () => {
-
-
     const [slideIndex, setSlideIndex] = useState(0)
 
     const handleClick = (direction) => {

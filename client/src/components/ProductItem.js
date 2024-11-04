@@ -16,8 +16,6 @@ justify-content: center;
 
 const Wrapper = styled.div`
 position: relative;
-/* background-color: #f5fbfd; */
-/* flex: 1; */
 margin: 5px 5px 0 5px;
 min-width: 280px;
 height: 350px;
@@ -70,7 +68,6 @@ cursor: pointer;
 }
 `
 const SubInfo = styled.div`
-/* background-color: blue; */
 align-self: center;
 width: 260px;
 margin:5px 5px 20px 5px;
@@ -78,8 +75,6 @@ display: flex;
 justify-content: space-between;
 `
 const Title = styled(Link)`
-/* background-color: red; */
-/* text-align: center; */
 text-decoration: none;
 color: black;
 font-weight: 300;
@@ -96,7 +91,6 @@ font-weight: 300;
 `
 
 const Container = styled.div`
-/* background-color: blue; */
 display:flex;
 flex-direction: column;
 

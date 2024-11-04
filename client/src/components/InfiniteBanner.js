@@ -2,15 +2,12 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
-/* background-color: gray; */
 height: 75px;
-/* max-height: 100px; */
 width: 100%;
 overflow: hidden;
 `
 
 const Wrapper = styled.div`
-/* background-color: purple; */
 width: 100%;
 height: 100%;
 `
@@ -20,16 +17,13 @@ background-color: black;
 position: relative;
 width: 100%;
 height: 100%;
-/* padding: 10px 0; */
 /* ----------create 2 lines possibility by removing---------- */
 display: flex;
 align-items: center;
 `
 
 const Banner1 = styled.div`
-/* background-color: blue; */
 position: absolute;
-/* top: 50%; */
 display: block;
 margin: auto auto;
 white-space: nowrap;
@@ -38,8 +32,6 @@ min-width: 100%;
 `
 
 const Banner2 = styled.div`
-/* white-space: nowrap; */
-/* background-color: pink; */
 position: absolute;
 display: block;
 margin: auto auto;

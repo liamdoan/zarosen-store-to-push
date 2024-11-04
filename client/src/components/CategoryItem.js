@@ -39,7 +39,6 @@ transition: .5s ease;
 `
 
 const Info = styled.div`
-/* background-color: pink; */
 position: absolute;
 height: 100%;
 width: 100%;
@@ -84,10 +83,8 @@ cursor: pointer;
 `
 
 const Container = styled(Link)`
-/* background-color: blue; */
 position: relative;
 flex: 1;
-/* border: 1px solid rgba(255, 255, 255, 0.2); */
 overflow: hidden;
 
 &:hover {

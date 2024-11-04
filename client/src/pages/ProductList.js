@@ -5,13 +5,11 @@ import { mobile } from '../Responsive'
 import { useLocation } from 'react-router-dom'
 
 const Container = styled.div`
-/* background-color: yellowgreen; */
 margin: 2rem 0;
 `
 
 const Title = styled.h1`
 padding: 1.5rem 3rem;
-/* background-color: brown; */
 text-transform: uppercase;
 font-weight: 400;
 font-style: italic;
@@ -22,7 +20,6 @@ font-style: italic;
 `
 
 const FilterContainer = styled.div`
-/* background-color: purple; */
 padding: 0 3rem;
 display: flex;
 justify-content: space-between;
@@ -33,7 +30,6 @@ justify-content: space-between;
 `
 
 const Filter = styled.div`
-/* background-color: blue; */
 margin: 1rem 0;
 
 ${mobile({
@@ -60,7 +56,6 @@ const Option = styled.option`
 `
  
 const ProductList = () => {
-
     const location = useLocation();
     const category = location.pathname.split("/")[2]
     // const color = location.pathname.split("/")[2]
@@ -85,42 +80,41 @@ const ProductList = () => {
                         Filter:
                     </FilterText>
                     { 
-                        (category === "boots")
+                        (category === "boots") 
                         ? (
                             <>
-                            <Select name="color" onChange={handleFilters}>
-                                <Option disabled>Color </Option>
-                                <Option>white</Option>
-                                <Option>black</Option>
-                                <Option>brown</Option>
-                                <Option>red</Option>
-                                <Option>blue</Option>
-                                <Option>yellow</Option>
-                                <Option>green</Option>
-                                <Option>gray</Option>
-                                <Option>beige</Option>
-                                <Option>pink</Option>
-                            </Select>
-                            <Select name="size" onChange={handleFilters}>
-                                <Option disabled >Size </Option>
-                                <Option>36</Option>
-                                <Option>37</Option>
-                                <Option>38</Option>
-                                <Option>39</Option>
-                                <Option>40</Option>
-                                <Option>42</Option>
-                                <Option>43</Option>
-                                <Option>44</Option>
-                                <Option>45</Option>
-                                <Option>46</Option>
-                                <Option>47</Option>
-                                <Option>48</Option>
-                                <Option>49</Option>
-                            </Select>
-                        </>
-                    ) 
-                    : 
-                    location.pathname === "/products"
+                                <Select name="color" onChange={handleFilters}>
+                                    <Option disabled>Color </Option>
+                                    <Option>white</Option>
+                                    <Option>black</Option>
+                                    <Option>brown</Option>
+                                    <Option>red</Option>
+                                    <Option>blue</Option>
+                                    <Option>yellow</Option>
+                                    <Option>green</Option>
+                                    <Option>gray</Option>
+                                    <Option>beige</Option>
+                                    <Option>pink</Option>
+                                </Select>
+                                <Select name="size" onChange={handleFilters}>
+                                    <Option disabled >Size </Option>
+                                    <Option>36</Option>
+                                    <Option>37</Option>
+                                    <Option>38</Option>
+                                    <Option>39</Option>
+                                    <Option>40</Option>
+                                    <Option>42</Option>
+                                    <Option>43</Option>
+                                    <Option>44</Option>
+                                    <Option>45</Option>
+                                    <Option>46</Option>
+                                    <Option>47</Option>
+                                    <Option>48</Option>
+                                    <Option>49</Option>
+                                </Select>
+                            </>
+                        ) 
+                    : location.pathname === "/products"
                     ? (
                         <>
                             <Select name="color" onChange={handleFilters}>
@@ -166,28 +160,28 @@ const ProductList = () => {
                     : 
                     (
                         <>
-                        <Select name="color" onChange={handleFilters}>
-                            <Option disabled>Color </Option>
-                            <Option>white</Option>
-                            <Option>black</Option>
-                            <Option>brown</Option>
-                            <Option>red</Option>
-                            <Option>blue</Option>
-                            <Option>yellow</Option>
-                            <Option>green</Option>
-                            <Option>gray</Option>
-                            <Option>beige</Option>
-                            <Option>pink</Option>
-                        </Select>
-                        <Select name="size" onChange={handleFilters}>
-                            <Option disabled >Size </Option>
-                            <Option>XS</Option>
-                            <Option>S</Option>
-                            <Option>M</Option>
-                            <Option>L</Option>
-                            <Option>XL</Option>
-                            <Option>XXL</Option>
-                        </Select>
+                            <Select name="color" onChange={handleFilters}>
+                                <Option disabled>Color </Option>
+                                <Option>white</Option>
+                                <Option>black</Option>
+                                <Option>brown</Option>
+                                <Option>red</Option>
+                                <Option>blue</Option>
+                                <Option>yellow</Option>
+                                <Option>green</Option>
+                                <Option>gray</Option>
+                                <Option>beige</Option>
+                                <Option>pink</Option>
+                            </Select>
+                            <Select name="size" onChange={handleFilters}>
+                                <Option disabled >Size </Option>
+                                <Option>XS</Option>
+                                <Option>S</Option>
+                                <Option>M</Option>
+                                <Option>L</Option>
+                                <Option>XL</Option>
+                                <Option>XXL</Option>
+                            </Select>
                         </>
                     )
                 } 

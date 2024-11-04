@@ -13,9 +13,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-
 const Container = styled.div`
-/* background-color: orange; */
 align-self: center;
 height: 100px;
 width: 100%;
@@ -28,7 +26,6 @@ flex-direction: column;
 `
 
 const TopNav = styled.div`
-/* background-color: brown; */
 height: 55px;
 padding: 0px 20px;
 display: flex;
@@ -36,9 +33,8 @@ justify-content: space-between;
 align-items: center;
 `
 
-// ----------------------------------LEFT--------------------------
+// LEFT
 const Left = styled.div`
-/* background-color: pink; */
 flex:1;
 text-align: center;
 
@@ -65,9 +61,8 @@ const Span = styled.span`
 color: black;
 `
 
-//  -------------------------------RIGHT--------------------
+// RIGHT
 const Right = styled.div`
-/* background-color: blue; */
 flex:1;
 display: flex;
 align-items: center;
@@ -88,7 +83,6 @@ ${mobile({
 `
 
 const SearchContainer = styled.form`
-/* background-color: purple; */
 border: 1px solid lightgray;
 display: flex;
 align-items: center;
@@ -106,7 +100,6 @@ padding: 4px 4px;
 }
 `
 const SignInWrapTop = styled.div`
-/* background-color: yellow; */
 display: flex;
 justify-content: center;
 /* width: 100%; */
@@ -203,7 +196,6 @@ cursor: pointer;
 `
 
 const MenuItemBadge = styled(Link)`
-/* border: 3px solid pink; */
 display: flex; 
 align-items: center;
 justify-content: center;
@@ -216,7 +208,7 @@ height: 50px;
 cursor: pointer;
 `
 
-// --------------------------BOTTOM------------------------
+// BOTTOM
 const BottomNav = styled.div`
 background-color: black;
 height: 45px;
@@ -229,7 +221,6 @@ const MobileIcon = styled.div`
 display: none;
 
 @media screen and (max-width:780px) {
-    /* background-color: green; */
     color: white;
     display:flex;
     font-weight: 300;
@@ -240,9 +231,7 @@ display: none;
 `
 
 const MenuItemWrapper = styled.div`
-/* background-color: orange; */
 height: 100%;
-
 display: flex;
 align-items: center;
 
@@ -266,7 +255,6 @@ const CloseIconWrap = styled.div`
 display: none; 
 
 @media screen and (max-width:780px) {
-    /* background-color: yellow; */
     display:flex;
     align-items: center;
     position: absolute;
@@ -283,7 +271,6 @@ display: flex;
 align-items: center;
 
 @media screen and (max-width: 780px) {
-    /* background-color: blue; */
     width: 100%;
     display: grid;
     grid-gap: 1rem;
@@ -293,7 +280,6 @@ align-items: center;
 `
 
 const MenuItem = styled(Link)`
-/* border: 3px solid pink; */ 
 width: 5rem;
 display: flex; 
 align-items: center;
@@ -334,7 +320,6 @@ const SignInWrapBottom = styled.div`
 display: none;
 
 @media screen and (max-width: 780px) {
-    /* background-color: yellow; */
     display: flex;
     justify-content: center;
     width: 100%;
@@ -352,22 +337,17 @@ display: none;
 `
 
 const Navbar = () => {
-
     const quantity = useSelector(state => state.cart.quantity)
-
     const quantityWish = useSelector(state => state.wish.quantity)
-
-    // console.log(quantity)
     const user = useSelector(state => state.user.currentUser);
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleLogout = (e) => {
         e.preventDefault();       
         logout(dispatch, user);
     }
-
-    const navigate = useNavigate()
 
     const [category, setCategory] = useState("")
 
@@ -395,7 +375,6 @@ const Navbar = () => {
     const toggle = () => {
       setIsOpen(!isOpen) 
     }
-
 
     return (
         <Container >
@@ -436,7 +415,7 @@ const Navbar = () => {
                         </MenuItemBadge>
                     </Right>
                 </TopNav>
-     {/* ---------------------BOTTOM NAV------------------- */}
+                {/* BOTTOM NAV */}
                 <BottomNav>
                     <MobileIcon onClick={toggle}>
                         <MenuIcon 

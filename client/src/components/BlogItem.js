@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import {Link} from "react-router-dom"
 
 const Container = styled.div`
-flex: 1; 
-/* background-color: pink; */
+flex: 1;
 min-width: 250px;
 height: 100%;
 display: flex;
@@ -23,7 +22,6 @@ transition: 0.3s ease-in-out;
 const ContentWrapper = styled.div``
 
 const ImgContainer = styled.div`
-/* background-color: orange; */
 width: 100%;
 max-height: 280px;
 `
@@ -35,14 +33,12 @@ object-fit: cover;
 `
 
 const Date = styled.p`
-/* background-color: blue; */
 padding: 14px 1rem;
 font-size: 12.5px;
 `
 
 
 const Title = styled.div`
-/* background-color: green; */
 padding: 14px 1rem;
 text-transform: uppercase;
 font-weight: bold;

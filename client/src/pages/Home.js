@@ -8,7 +8,6 @@ import Blog from '../components/Blog';
 
 
 const FeatureHeaderContainer = styled.div`
-/* background-color: pink; */
 width: 100%;
 padding: 3rem 0 calc(3rem - 30px) 0; 
 `
@@ -22,7 +21,6 @@ align-items: center;
 `
 
 const SubTitle = styled.p`
-/* background-color: orange; */
 text-transform: uppercase;
 font-size: 12px;
 padding: 10px 10px 5px 10px;
@@ -35,12 +33,10 @@ width: 50px;
 background-color: black;
 `
 const TitleWrap = styled.div`
-/* background-color: pink; */
 padding: 15px 5px;
 
 `
 const Title = styled.p`
-/* background-color: blue; */
 padding: 15px;
 text-transform: uppercase;
 font-size: clamp(1.8rem, 4vw, 3rem);
@@ -58,7 +54,6 @@ color: black;
 `
 
 const Home = () => {
-
     return (
         <>
             <Slider/>

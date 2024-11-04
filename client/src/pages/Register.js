@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { register } from '../redux/apiCalls'
 
-
 const Container = styled.div`
 width: 100%;
 height: 70vh;
@@ -105,7 +104,6 @@ cursor: pointer;
 
 
 const Register = () => {
-
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");

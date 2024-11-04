@@ -21,13 +21,11 @@ ${mobile({
 
 
 const Products = ({category, color, filters, sort}) => {
-    // console.log(category, filters, sort)
-
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const location = useLocation()
 
-    // -----------FILTERED BY CATEGORIES------------
+    // filtered by categories
     useEffect(() => {
         const getProducts = async () => {
             try{  
@@ -40,7 +38,6 @@ const Products = ({category, color, filters, sort}) => {
                     : "https://zarosen-store-to-push-backend.vercel.app/api/products"
                     // : "http://localhost:5000/api/products"
                     )
-                // console.log(res)
                 setProducts(res.data)
             }catch(err) {
 
@@ -49,7 +46,6 @@ const Products = ({category, color, filters, sort}) => {
         getProducts(); 
     },[category, color]);
  
-
     useEffect(() => {
         category && setFilteredProducts(
             products.filter(item => 
@@ -61,8 +57,7 @@ const Products = ({category, color, filters, sort}) => {
     }, [products, category, color, filters]);
 
 
-    // -----------FILTERED BY SORT--------------
-
+    // filtered by sorting
     useEffect (() => {
         if(sort ==="newest") {
             setFilteredProducts(prev => 
@@ -79,24 +74,22 @@ const Products = ({category, color, filters, sort}) => {
         }
     }, [sort])
  
-
     return (
         <Container>
             {category 
-            ? filteredProducts.map(item => (
-                <ProductItem key={item._id} item={item} />
-            ))
-            : location.pathname === "/" 
+                ? filteredProducts.map(item => (
+                    <ProductItem key={item._id} item={item} />
+                ))
+                : location.pathname === "/" 
                 ? products.slice(2,8).map(item => (
                     <ProductItem key={item._id} item={item} />
                 ))
-            : products.map(item => (
-                <ProductItem key={item._id} item={item} />
-            ))
-        }
+                : products.map(item => (
+                    <ProductItem key={item._id} item={item} />
+                ))
+            }
         </Container>
     )
 }
 
 export default Products
- 

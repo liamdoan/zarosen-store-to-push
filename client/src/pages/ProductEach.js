@@ -14,7 +14,6 @@ padding: 3rem 0;
 `
 
 const Wrapper = styled.div`
-/* background-color: red; */
 padding: 1rem;
 display: flex;
 
@@ -24,7 +23,6 @@ display: flex;
 `
 
 const ImgContainer = styled.div`
-/* background-color: gray; */
 flex: 1;
 display:flex;
 justify-content: end;
@@ -42,7 +40,6 @@ width: auto;
 max-height: 60vh;
 max-width: 100%;
 object-fit: cover;
-/* float: right; */
 
 ${mobile({
     height:"40vh"
@@ -50,7 +47,6 @@ ${mobile({
 `
 
 const InfoContainer = styled.div`
-/* background-color: pink; */
 flex: 1;
 margin-left: 2rem;
 display: flex;
@@ -65,7 +61,6 @@ justify-content: start;
 `
 
 const InfoWrapper = styled.div`
-/* background-color: green; */
 width: 100%;
 padding: 0 5px;
 `
@@ -85,7 +80,6 @@ font-size: 30px;
 `
 
 const FilterContainer = styled.div`
-/* background-color: teal; */
 display: flex;
 justify-content: space-between;
 width: 100%;
@@ -98,7 +92,6 @@ margin: 30px 0 10px 0;
 `
 
 const Filter = styled.div`
-/* background-color: blue; */
 display: flex;
 align-items: center;
 `
@@ -139,7 +132,6 @@ const FilterSizeOption = styled.option`
 `
 
 const AddContainer = styled.div`
-/* background-color: yellow; */
 width: 100%;
 padding: 10px 0;  
 display: flex;
@@ -154,7 +146,6 @@ justify-content: space-between;
 `
 
 const Amount = styled.span`
-/* background-color: orange; */
 margin: 0 5px;
 font-size: 1.2rem;
 width: 30px;
@@ -175,7 +166,6 @@ cursor: pointer;
     transition: 0.3s ease-in-out;
     border-radius: 50%;
     background-color: #CBBA9C;
-
 }
 `
 
@@ -222,32 +212,23 @@ cursor: pointer;
 `
 
 const ProductEach = () => {
-
     const location = useLocation();
+    const dispatch = useDispatch();
 
-    const id = location.pathname.split("/")[2]
+    const id = location.pathname.split("/")[2];
 
     const [product, setProduct] = useState({})
-    
     const [quantity, setQuantity] = useState(1)
-    
     const [color, setColor] = useState({})
-
     const [size, setSize] = useState({})
-
-    const dispatch = useDispatch()
-
 
     useEffect(() => {
         const getProduct = async () => {
             try {
                 const res = await publicRequest.get("/products/find/" + id);
-                setProduct(res.data)
-                console.log(res)
-                setColor(res.data.color[0])
-                // console.log(res.data.color[0])
-                setSize(res.data.size[0])
-                // console.log(res.data.size[0])
+                setProduct(res.data);
+                setColor(res.data.color[0]);
+                setSize(res.data.size[0]);
             }catch{
             };
         };
@@ -256,11 +237,11 @@ const ProductEach = () => {
 
 
     const handleQuantity = (type) => {
-        if(type === "decrease") {
-            quantity > 1 && setQuantity(quantity - 1)
-        }else {
-            setQuantity(quantity + 1)
-    }
+        if (type === "decrease") {
+            quantity > 1 && setQuantity(quantity - 1);
+        } else {
+            setQuantity(quantity + 1);
+        }
     }
 
     const handleClick = () => {
@@ -272,8 +253,7 @@ const ProductEach = () => {
                 size
             }) 
         )
-    }
-
+    };
 
     return ( 
         <Container>
@@ -325,4 +305,4 @@ const ProductEach = () => {
     )
 }
 
-export default ProductEach
+export default ProductEach;

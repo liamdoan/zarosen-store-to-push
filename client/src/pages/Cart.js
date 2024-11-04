@@ -131,27 +131,20 @@ cursor: pointer;
 }
 `
 
-
-// ----------------------------------------------------BOTTOM----------------------------------------------------
-
+// BOTTOM
 const Bottom = styled.div`
 display: flex;
-/* justify-content: space-between; */
-@media screen and (max-width: 640px){
+@media screen and (max-width: 640px) {
     flex-direction: column;
 }
 `
 
 const Info = styled.div`
-/* background-color: yellow; */
 flex: 3;
 `
 
 const ProductContainer = styled.div`
 margin: 5px 0;
-/* background-color: pink; */
-/* display: flex;
-justify-content: space-between; */
 `
 
 const ProductDetail = styled.div`
@@ -172,11 +165,9 @@ align-items: center;
 const Img = styled.img`
 height: 200px;
 width: auto;
-/* width: auto; */
 `
 
 const Details = styled.div`
-/* background-color: blue; */
 font-weight: 300;
 flex: 1;
 padding: 10px;
@@ -219,10 +210,8 @@ margin-bottom: 15px;
 
 const ProductAmount = styled.div`
 `
-
 const ProductPrice = styled.div`
 `
-
 const RemoveButton = styled.button`
 `
 
@@ -237,8 +226,7 @@ margin: 10px 20px;
 }
 `
 
-// --------------------------SUMMARY SECTION --------------------
-
+// SUMMARY SECTION
 const Summary = styled.div`
 flex: 1;
 border: 0.5px solid gray;
@@ -258,7 +246,6 @@ font-size: ${({type}) => type === "total" && "24px"};
 
 const SummaryItemText = styled.span`
 `
-
 const SummaryItemPrice = styled.span`
 `
 
@@ -291,24 +278,18 @@ z-index: 100;
     }
 `
 
-
 const Cart = () => {
-
     const cart = useSelector(state => state.cart)
-    console.log(cart)
-
     const wish = useSelector(state => state.wish)
 
     const [stripeToken, setStripeToken] = useState(null)
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const onToken = (token) => {
         setStripeToken(token)
     }
-    // console.log(stripeToken)
-
-    const dispatch = useDispatch()
 
     useEffect(() => {
         const makeRequest = async () => {
@@ -328,7 +309,7 @@ const Cart = () => {
                 // dispatch(
                 //     addOrders(...cart)
                 // )
-            }catch {
+            } catch {
 
             }
         };
@@ -346,79 +327,79 @@ const Cart = () => {
     return (
         <>
         {/* <h1>CART PAGE</h1> */}
-        <Container>
-            <Wrapper>
-                <Title>YOUR BAG</Title>
-                <Top>
-                    <TopButton to="/">Continue shopping</TopButton>
-                    <TopTextsWrap>
-                        <TopText to="/cart">Shopping bag ({cart.products.length})</TopText>
-                        <TopText to="/wish">Wishlist ({wish.products.length})</TopText>
-                    </TopTextsWrap>
-                    <ClearBagButton onClick={handleClickRemove}>Clear bag</ClearBagButton>
-                </Top>
-                <Bottom>
-                    <Info>
-                        {cart.products.map(product => (
-                            <ProductContainer>
-                            <ProductDetail>
-                                <ImgContainer>
-                                    <Img  src={product.img}/>
-                                </ImgContainer>
-                                <Details>
-                                    <ProductName >Product: {product.title}</ProductName>
-                                    {/* <ProductID>ID: {product._id}</ProductID> */}
-                                    <ProductColor >Color: <Color color={product.color}/></ProductColor>
-                                    <ProductSize >Size: {product.size}</ProductSize>
-                                    <PriceDetail>
-                                        <AmountContainer>
-                                            <ProductAmount>Amounts: {product.quantity}</ProductAmount>
-                                        </AmountContainer>
-                                        <ProductPrice >
-                                            £{product.price * product.quantity}
-                                        </ProductPrice>
-                                    </PriceDetail>
-                                    {/* <RemoveButton>Remove</RemoveButton> */}
-                                </Details>
-                            </ProductDetail>    
-                            <Hr/>
-                        </ProductContainer>
-                        ))}
-                    </Info>
-                    <Summary>
-                        <SummaryTitle>Order summary</SummaryTitle>
-                        <SummaryItem>
-                            <SummaryItemText>Subtotal;</SummaryItemText>
-                            <SummaryItemPrice>£{cart.total}</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Shipping:</SummaryItemText>
-                            <SummaryItemPrice>£0</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Shipping discount:</SummaryItemText>
-                            <SummaryItemPrice>-£0</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem type="total">
-                            <SummaryItemText>Total:</SummaryItemText>
-                            <SummaryItemPrice>£{cart.total}</SummaryItemPrice>
-                        </SummaryItem>
-                        <StripeCheckout 
-                            name="ABCDEF Shop" 
-                            image=""
-                            billingAddress
-                            shippingAddress
-                            description={`Your total is £${cart.total}`}
-                            amount={cart.total * 100}
-                            token={onToken}
-                            stripeKey={KEY}
-                            >
-                            <Button>CHECK OUT</Button>
-                        </StripeCheckout>
-                    </Summary>
-                </Bottom>
-            </Wrapper>
-        </Container>
+            <Container>
+                <Wrapper>
+                    <Title>YOUR BAG</Title>
+                    <Top>
+                        <TopButton to="/">Continue shopping</TopButton>
+                        <TopTextsWrap>
+                            <TopText to="/cart">Shopping bag ({cart.products.length})</TopText>
+                            <TopText to="/wish">Wishlist ({wish.products.length})</TopText>
+                        </TopTextsWrap>
+                        <ClearBagButton onClick={handleClickRemove}>Clear bag</ClearBagButton>
+                    </Top>
+                    <Bottom>
+                        <Info>
+                            {cart.products.map(product => (
+                                <ProductContainer>
+                                <ProductDetail>
+                                    <ImgContainer>
+                                        <Img  src={product.img}/>
+                                    </ImgContainer>
+                                    <Details>
+                                        <ProductName >Product: {product.title}</ProductName>
+                                        {/* <ProductID>ID: {product._id}</ProductID> */}
+                                        <ProductColor >Color: <Color color={product.color}/></ProductColor>
+                                        <ProductSize >Size: {product.size}</ProductSize>
+                                        <PriceDetail>
+                                            <AmountContainer>
+                                                <ProductAmount>Amounts: {product.quantity}</ProductAmount>
+                                            </AmountContainer>
+                                            <ProductPrice >
+                                                £{product.price * product.quantity}
+                                            </ProductPrice>
+                                        </PriceDetail>
+                                        {/* <RemoveButton>Remove</RemoveButton> */}
+                                    </Details>
+                                </ProductDetail>    
+                                <Hr/>
+                            </ProductContainer>
+                            ))}
+                        </Info>
+                        <Summary>
+                            <SummaryTitle>Order summary</SummaryTitle>
+                            <SummaryItem>
+                                <SummaryItemText>Subtotal;</SummaryItemText>
+                                <SummaryItemPrice>£{cart.total}</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Shipping:</SummaryItemText>
+                                <SummaryItemPrice>£0</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Shipping discount:</SummaryItemText>
+                                <SummaryItemPrice>-£0</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem type="total">
+                                <SummaryItemText>Total:</SummaryItemText>
+                                <SummaryItemPrice>£{cart.total}</SummaryItemPrice>
+                            </SummaryItem>
+                            <StripeCheckout 
+                                name="ABCDEF Shop" 
+                                image=""
+                                billingAddress
+                                shippingAddress
+                                description={`Your total is £${cart.total}`}
+                                amount={cart.total * 100}
+                                token={onToken}
+                                stripeKey={KEY}
+                                >
+                                <Button>CHECK OUT</Button>
+                            </StripeCheckout>
+                        </Summary>
+                    </Bottom>
+                </Wrapper>
+            </Container>
         </>
     )
 }
