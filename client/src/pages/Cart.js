@@ -309,8 +309,8 @@ const Cart = () => {
                 // dispatch(
                 //     addOrders(...cart)
                 // )
-            } catch {
-
+            } catch(error) {
+                console.error(error);
             }
         };
         stripeToken && cart.total >= 1 && makeRequest()

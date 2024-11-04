@@ -229,8 +229,9 @@ const ProductEach = () => {
                 setProduct(res.data);
                 setColor(res.data.color[0]);
                 setSize(res.data.size[0]);
-            }catch{
-            };
+            } catch(error) {
+                console.error(error);
+            }
         };
         getProduct();
     },[id])
