@@ -19,7 +19,6 @@ ${mobile({
 })};
 `
 
-
 const Products = ({category, color, filters, sort}) => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
