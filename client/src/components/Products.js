@@ -40,7 +40,7 @@ const Products = ({category, color, filters, sort}) => {
                     )
                 setProducts(res.data)
             }catch(err) {
-
+                console.error(err);
             }
         }
         getProducts(); 
@@ -52,8 +52,7 @@ const Products = ({category, color, filters, sort}) => {
                 Object.entries(filters).every(([key, value]) =>
                     item[key].includes(value)
                 ))
-        )
-        console.log(products)
+        );
     }, [products, category, color, filters]);
 
 
