@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { favProducts } from './Data'
 import ProductItem from './ProductItem'
 import { mobile } from '../Responsive'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import { useLocation } from 'react-router-dom'
+import Spinner from './spinner/Spinner'
 
 const Container = styled.div`
 padding: 0 20px 20px 20px; 
@@ -22,6 +22,8 @@ ${mobile({
 const Products = ({category, color, filters, sort}) => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
+    const [loading, setLoading] = useState(true);
+
     const location = useLocation()
 
     // filtered by categories
@@ -38,12 +40,14 @@ const Products = ({category, color, filters, sort}) => {
                     // : "http://localhost:5000/api/products"
                     )
                 setProducts(res.data)
+                setLoading(false)
             }catch(err) {
                 console.error(err);
             }
-        }
+        };
+
         getProducts(); 
-    },[category, color]);
+    }, [category, color]);
  
     useEffect(() => {
         category && setFilteredProducts(
@@ -53,7 +57,6 @@ const Products = ({category, color, filters, sort}) => {
                 ))
         );
     }, [products, category, color, filters]);
-
 
     // filtered by sorting
     useEffect (() => {
@@ -74,18 +77,21 @@ const Products = ({category, color, filters, sort}) => {
  
     return (
         <Container>
-            {category 
-                ? filteredProducts.map(item => (
+            {loading ? (
+                <Spinner />
+            ) : (
+                category ? filteredProducts.map(item => (
                     <ProductItem key={item._id} item={item} />
                 ))
-                : location.pathname === "/" 
-                ? products.slice(2,8).map(item => (
+                : location.pathname === "/" ? 
+                products.slice(2,8).map(item => (
                     <ProductItem key={item._id} item={item} />
                 ))
                 : products.map(item => (
                     <ProductItem key={item._id} item={item} />
                 ))
-            }
+            )
+        }
         </Container>
     )
 }
