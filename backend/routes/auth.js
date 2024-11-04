@@ -49,38 +49,37 @@ const generateRefreshToken = (user) => { return jwt.sign({
     process.env.JWT_REFRESH_SECRET
 )}
 
-// ------------------REFRESH TOKEN ------------------------
+// REFRESH TOKEN
 let refreshTokens = [];
 
 router.post("/refresh", (req, res) => {
-  //take the refresh token from the user
-  const refreshToken = req.body.token;
+    //take the refresh token from the user
+    const refreshToken = req.body.token;
 
-  //send error if there is no token or it's invalid
-  if (!refreshToken) return res.status(401).json("You aren't authenticated!");
-  if (!refreshTokens.includes(refreshToken)) {
-    return res.status(403).json("Refresh token is not valid!");
-  }
-  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
-    err && console.log(err);
-    refreshTokens = refreshTokens.filter(token => token !== refreshToken);
+    //send error if there is no token or it's invalid
+    if (!refreshToken) return res.status(401).json("You aren't authenticated!");
+    if (!refreshTokens.includes(refreshToken)) {
+        return res.status(403).json("Refresh token is not valid!");
+    }
 
-    const newAccessToken = generateAccessToken(user);
-    const newRefreshToken = generateRefreshToken(user);
+    jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
+        err && console.log(err);
+        refreshTokens = refreshTokens.filter(token => token !== refreshToken);
 
-    refreshTokens.push(newRefreshToken);
+        const newAccessToken = generateAccessToken(user);
+        const newRefreshToken = generateRefreshToken(user);
 
-    res.status(200).json({
-      accessToken: newAccessToken,
-      refreshToken: newRefreshToken,
+        refreshTokens.push(newRefreshToken);
+
+        res.status(200).json({
+            accessToken: newAccessToken,
+            refreshToken: newRefreshToken,
+        });
     });
-  });
-
   //if everything is ok, create new access token, refresh token and send to user
 });
 
-
-// ------------------LOGIN------------------
+// LOGIN
 router.post("/login", async (req,res) => {
     try {
         const user = await User.findOne({
@@ -108,14 +107,11 @@ router.post("/login", async (req,res) => {
     }
 })
 
-
-// ---------------LOGOUT------------------
+// LOGOUT
 router.post("/logout", verifyToken, async (req,res) => {
     const refreshToken = req.body.token;
     refreshTokens = refreshTokens.filter(token => token !== refreshToken);
     res.status(200).json("Logged out successfully");
 })
 
-
-
-module.exports = router
+module.exports = router;

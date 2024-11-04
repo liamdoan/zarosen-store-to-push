@@ -8,12 +8,9 @@ const productRoute = require("./routes/product")
 const cartRoute = require("./routes/cart")
 const orderRoute = require("./routes/order")
 dotenv.config()
-
 const stripeRoute = require("./routes/stripe")
 const cors = require("cors")
-
 const path = require("path")
-
 
 mongoose
     .connect(process.env.MONGO_URL)
@@ -29,14 +26,7 @@ mongoose
 //     res.render('index', {});
 //     });
 
-
-app.use(cors(
-//    {
-//    origin: ["https://zarosen-store-to-push-backend.vercel.app/"],
-  //  methods: ["POST", "GET"],
-    //credentials: true
-//}
-))
+app.use(cors())
 
 app.use(express.json())
 
@@ -62,7 +52,6 @@ app.get('*', (_, res) => {
     });
 });
 
-
 app.listen(process.env.PORT || 5000, () => {
     console.log("backend is running")
-})
+});

@@ -15,8 +15,7 @@ const router = require("express").Router()
 const Order = require("../models/Order")
 const {verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin} = require("./verifyToken")
 
-// --------------------CREATE----------------------
-
+// CREATE
 router.post("/", verifyToken, async (req,res) => {
     const newOrder = new Order(req.body)
     try{
@@ -28,7 +27,7 @@ router.post("/", verifyToken, async (req,res) => {
 });
 
 
-// --------------UPDATE----------------
+// UPDATE
 router.put("/:id", verifyTokenAndAdmin, async (req,res) => {
     try{
         const updatedOrder = await Order.findByIdAndUpdate(req.params.id, {
@@ -40,8 +39,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req,res) => {
     }
 })
 
-// ----------------DELETE-------------------
-
+// DELETE
 router.delete("/:id", verifyTokenAndAdmin, async (req,res) => {
     try {
         await Order.findByIdAndDelete(req.params.id)
@@ -51,9 +49,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req,res) => {
     }
 })
 
-
-// ----------------GET USER ORDERS-------------------
-
+// GET USER ORDER
 router.get("/find/:userId", verifyTokenAndAuthorization, async (req,res) => {
     try {
         const orders = await Order.find({userId: req.params.userId})
@@ -63,9 +59,7 @@ router.get("/find/:userId", verifyTokenAndAuthorization, async (req,res) => {
     }
 })
 
-
-// ----------------GET ALL ORDERS (FOR ADMIN)-------------------
-
+// GET ALL ORDERS (FOR ADMIN)
 router.get("/", verifyTokenAndAdmin, async(req,res) => {
     try {
         const orders = await Order.find()
@@ -75,9 +69,7 @@ router.get("/", verifyTokenAndAdmin, async(req,res) => {
     }
 })
 
-
-// ----------------GET MONTHLY INCOME--------------------
-
+// GET MONTHLY INCOME (further developing)
 router.get("/income", verifyTokenAndAdmin, async (req,res) => {
     const date = new Date();
     const lastMonth = new Date(date.setMonth(date.getMonth() - 1))
@@ -104,4 +96,4 @@ router.get("/income", verifyTokenAndAdmin, async (req,res) => {
     }
 });
 
-module.exports = router
+module.exports = router;

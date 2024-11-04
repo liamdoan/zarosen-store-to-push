@@ -11,13 +11,12 @@
 // })
 
 // Original 
-
 const router = require("express").Router()
 const User = require("../models/User")
 const {verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin} = require("./verifyToken")
 
 
-// --------------UPDATE----------------
+// UPDATE
 router.put("/:id", verifyTokenAndAuthorization, async (req,res) => {
     if(req.body.password) {
         req.body.password = CryptoJS.AES.encrypt(
@@ -36,8 +35,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req,res) => {
     }
 })
 
-// ----------------DELETE-------------------
-
+// DELETE
 router.delete("/:id", verifyTokenAndAuthorization, async (req,res) => {
     try {
         await User.findByIdAndDelete(req.params.id)
@@ -47,9 +45,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req,res) => {
     }
 })
 
-
-// ----------------GET USER (FOR ADMIN)-------------------
-
+// GET USER (FOR ADMIN)
 router.get("/find/:id", verifyTokenAndAdmin, async (req,res) => {
     try {
         const user = await User.findById(req.params.id)
@@ -62,8 +58,7 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req,res) => {
 })
 
 
-// ----------------GET ALL USER (FOR ADMIN)-------------------
-
+// GET ALL USER (FOR ADMIN)
 router.get("/", verifyTokenAndAdmin, async (req,res) => {
     const query = req.query.new
     try {
@@ -76,8 +71,7 @@ router.get("/", verifyTokenAndAdmin, async (req,res) => {
     }
 })
 
-
-// ------------------GET USER STATS--------------------
+// GET USER STATS (for further dev)
 router.get("/stats", verifyTokenAndAdmin, async (req,res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
@@ -102,9 +96,9 @@ router.get("/stats", verifyTokenAndAdmin, async (req,res) => {
             }
         ]);
         res.status(200).json(data)
-    }catch(err) {
+    } catch(err) {
         res.status(500).json(err)
     }
 })
 
-module.exports = router
+module.exports = router;
