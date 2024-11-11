@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import {Link} from "react-router-dom"
 
 const Container = styled.div`
@@ -110,5 +111,15 @@ const BlogItem = ({blog}) => {
         </Container>
     );
 };
+
+BlogItem.propTypes = {
+    blog: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        img: PropTypes.string,
+        date: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string,
+    }).isRequired
+}
 
 export default BlogItem;
