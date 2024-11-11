@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
-import ImgProduct from "../images/img-product.jpg"
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
 import { mobile } from '../Responsive';
 import StripeCheckout from "react-stripe-checkout"
 import {userRequest} from "../requestMethods"
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { clearBag } from '../redux/cartRedux';
-import { addOrders } from '../redux/yourOrdersRedux';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+// import ImgProduct from "../images/img-product.jpg"
+// import RemoveIcon from '@mui/icons-material/Remove';
+// import AddIcon from '@mui/icons-material/Add';
+// import { addOrders } from '../redux/yourOrdersRedux';
 
 const KEY = process.env.REACT_APP_STRIPE;
 // variable is always prefixed with REACT_APP
@@ -177,7 +176,7 @@ justify-content: start;
 `
 
 const ProductName = styled.span``
-const ProductID = styled.span``
+// const ProductID = styled.span``
 
 const ProductColor = styled.div`
 display: flex; 
@@ -212,8 +211,7 @@ const ProductAmount = styled.div`
 `
 const ProductPrice = styled.div`
 `
-const RemoveButton = styled.button`
-`
+// const RemoveButton = styled.button``
 
 const Hr = styled.hr`
 background-color: lightgray;
@@ -314,6 +312,8 @@ const Cart = () => {
             }
         };
         stripeToken && cart.total >= 1 && makeRequest()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stripeToken, cart.total, navigate])
 
 
@@ -341,7 +341,7 @@ const Cart = () => {
                     <Bottom>
                         <Info>
                             {cart.products.map(product => (
-                                <ProductContainer>
+                                <ProductContainer key={product._id}>
                                 <ProductDetail>
                                     <ImgContainer>
                                         <Img  src={product.img}/>
