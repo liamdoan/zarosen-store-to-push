@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import { mobile } from '../Responsive';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/apiCalls'
+import { logout } from '../redux/apiCalls';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,394 +14,389 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Container = styled.div`
-align-self: center;
-height: 100px;
-width: 100%;
-z-index: 100;
-`
+    align-self: center;
+    height: 100px;
+    width: 100%;
+    z-index: 100;
+`;
 
 const Wrapper = styled.div`
-display: flex;
-flex-direction: column;
-`
+    display: flex;
+    flex-direction: column;
+`;
 
 const TopNav = styled.div`
-height: 55px;
-padding: 0px 20px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-`
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
 
 // LEFT
 const Left = styled.div`
-flex:1;
-text-align: center;
+    flex: 1;
+    text-align: center;
 
-@media screen and (max-width: 414px){
-    flex: calc(2/5);
-}
-`
+    @media screen and (max-width: 414px) {
+        flex: calc(2 / 5);
+    }
+`;
 
 const Logo = styled(Link)`
-text-decoration: none;
-color: #CBBA9C;
-font-style: italic;
-letter-spacing: 8px;
-font-weight: 600;
-font-size: clamp(1.2rem, 5vw, 2rem);
-cursor: pointer;
+    text-decoration: none;
+    color: #cbba9c;
+    font-style: italic;
+    letter-spacing: 8px;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    cursor: pointer;
 
-@media screen and (max-width: 414px){
-letter-spacing: 1px;
-}
-`
+    @media screen and (max-width: 414px) {
+        letter-spacing: 1px;
+    }
+`;
 
 const Span = styled.span`
-color: black;
-`
+    color: black;
+`;
 
 // RIGHT
 const Right = styled.div`
-flex:1;
-display: flex;
-align-items: center;
-justify-content: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-@media screen and (max-width: 414px){
-    flex: calc(3/5);
-}
-`
+    @media screen and (max-width: 414px) {
+        flex: calc(3 / 5);
+    }
+`;
 
 const Language = styled.span`
-font-size: 14px;
-cursor: pointer;
+    font-size: 14px;
+    cursor: pointer;
 
-${mobile({
-    display: "none"
-})};
-`
+    ${mobile({
+        display: 'none',
+    })};
+`;
 
 const SearchContainer = styled.form`
-border: 1px solid lightgray;
-display: flex;
-align-items: center;
-margin-left: 25px;
-padding: 2px 7px;
-`
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    padding: 2px 7px;
+`;
 
 const Input = styled.input`
-border: none;
-outline: none;
-padding: 4px 4px;
+    border: none;
+    outline: none;
+    padding: 4px 4px;
 
-@media screen and (max-width: 780px) {
-    width: 30px;
-}
-`
+    @media screen and (max-width: 780px) {
+        width: 30px;
+    }
+`;
 const SignInWrapTop = styled.div`
-display: flex;
-justify-content: center;
-/* width: 100%; */
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
 
-@media screen and (max-width: 780px) {
-    display: none;
-}
-`
+    @media screen and (max-width: 780px) {
+        display: none;
+    }
+`;
 
 const MenuItemSignIn = styled(Link)`
-display: flex; 
-align-items: center;
-justify-content: center;
-font-size: 14px;
-text-decoration: none;
-font-style: italic;
-color: black;
-margin-left: 15px;
-height: 50px;
-transition: 0.2s ease-in-out;
-cursor: pointer;
-
-&:hover {
-    transition: 0.2s ease-in-out;
-    color: #CBBA9C;
-}
-
-@media screen and (max-width: 780px) {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #CBBA9C;
-    border: 2px solid #CBBA9C;
-    font-size: 18px;
-    font-weight: 300;
-    font-style: normal;
-    height: 60px;
-    margin: 0;
-    width: 50%;
-    outline: 2px solid transparent;
-    outline-offset: -7px;
+    font-size: 14px;
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+    margin-left: 15px;
+    height: 50px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
 
     &:hover {
-    background-color: black;
-    color: white;
-    border: 2px solid black;
-    outline: 2px solid #CBBA9C;
-    outline-offset: -7px;
-    transition: 0.3s ease-in-out;
+        transition: 0.2s ease-in-out;
+        color: #cbba9c;
     }
-}
-`
+
+    @media screen and (max-width: 780px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #cbba9c;
+        border: 2px solid #cbba9c;
+        font-size: 18px;
+        font-weight: 300;
+        font-style: normal;
+        height: 60px;
+        margin: 0;
+        width: 50%;
+        outline: 2px solid transparent;
+        outline-offset: -7px;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            outline: 2px solid #cbba9c;
+            outline-offset: -7px;
+            transition: 0.3s ease-in-out;
+        }
+    }
+`;
 
 const MenuItemLogout = styled.div`
-display: flex; 
-align-items: center;
-justify-content: center;
-font-size: 14px;
-text-decoration: none;
-font-style: italic;
-color: black;
-margin-left: 15px;
-transition: 0.2s ease-in-out;
-cursor: pointer;
-
-&:hover {
-    transition: 0.2s ease-in-out;
-    color: #CBBA9C;
-}
-@media screen and (max-width: 780px) {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #CBBA9C;
-    border: 2px solid #CBBA9C;
-    font-size: 18px;
-    font-weight: 300;
-    font-style: normal;
-    height: 60px;
-    margin: 0;
-    width: 50%;
-    outline: 2px solid transparent;
-    outline-offset: -7px;
+    font-size: 14px;
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+    margin-left: 15px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
 
     &:hover {
-    background-color: black;
-    color: white;
-    border: 2px solid black;
-    outline: 2px solid #CBBA9C;
-    outline-offset: -7px;
-    transition: 0.3s ease-in-out;
+        transition: 0.2s ease-in-out;
+        color: #cbba9c;
     }
-}
-`
+    @media screen and (max-width: 780px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #cbba9c;
+        border: 2px solid #cbba9c;
+        font-size: 18px;
+        font-weight: 300;
+        font-style: normal;
+        height: 60px;
+        margin: 0;
+        width: 50%;
+        outline: 2px solid transparent;
+        outline-offset: -7px;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            outline: 2px solid #cbba9c;
+            outline-offset: -7px;
+            transition: 0.3s ease-in-out;
+        }
+    }
+`;
 
 const MenuItemBadge = styled(Link)`
-display: flex; 
-align-items: center;
-justify-content: center;
-font-size: 14px;
-font-weight: 300;
-text-decoration: none;
-color: black;
-margin-left: 15px;
-height: 50px;
-cursor: pointer;
-`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+    color: black;
+    margin-left: 15px;
+    height: 50px;
+    cursor: pointer;
+`;
 
 // BOTTOM
 const BottomNav = styled.div`
-background-color: black;
-height: 45px;
-display: flex;
-align-items: center;
-justify-content: center;
-`
- 
-const MobileIcon = styled.div`
-display: none;
-
-@media screen and (max-width:780px) {
-    color: white;
-    display:flex;
-    font-weight: 300;
-    justify-content: center;
+    background-color: black;
+    height: 45px;
+    display: flex;
     align-items: center;
-    cursor: pointer;
-}
-`
+    justify-content: center;
+`;
+
+const MobileIcon = styled.div`
+    display: none;
+
+    @media screen and (max-width: 780px) {
+        color: white;
+        display: flex;
+        font-weight: 300;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+`;
 
 const MenuItemWrapper = styled.div`
-height: 100%;
-display: flex;
-align-items: center;
-
-@media screen and (max-width:780px) {
-    background-color: white;
-    position: fixed;
-    z-index: 99;
-    min-width: 280px;
-    max-width: 350px;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    top: 0;
-    right: ${({isOpen}) => (isOpen ? '0' : '-1000px')};
-    transition: 0.3s ease-in-out;
-}
-`
+    align-items: center;
+
+    @media screen and (max-width: 780px) {
+        background-color: white;
+        position: fixed;
+        z-index: 99;
+        min-width: 280px;
+        max-width: 350px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        top: 0;
+        right: ${({ isOpen }) => (isOpen ? '0' : '-1000px')};
+        transition: 0.3s ease-in-out;
+    }
+`;
 
 const CloseIconWrap = styled.div`
-display: none; 
+    display: none;
 
-@media screen and (max-width:780px) {
-    display:flex;
-    align-items: center;
-    position: absolute;
-    top: 1.2rem;
-    right: 1.5rem;
-    outline: none;
-    color: black;
-    cursor: pointer;
-}
-`
+    @media screen and (max-width: 780px) {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        outline: none;
+        color: black;
+        cursor: pointer;
+    }
+`;
 
 const MenuItemLinks = styled.div`
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 
-@media screen and (max-width: 780px) {
-    width: 100%;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 60px);
-}
-`
+    @media screen and (max-width: 780px) {
+        width: 100%;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 60px);
+    }
+`;
 
 const MenuItem = styled(Link)`
-width: 5rem;
-display: flex; 
-align-items: center;
-justify-content: center;
-font-size: clamp(14px, 2vw, 1rem);
-font-weight: 300;
-text-transform: uppercase;
-text-decoration: none;
-color: white;
-margin: 0 15px;
-height: 45px;
-transition: 0.2s ease-in-out;
-cursor: pointer;
-
-&:hover {
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(14px, 2vw, 1rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    height: 45px;
     transition: 0.2s ease-in-out;
-    color: #CBBA9C;
-}
-
-@media screen and (max-width: 780px) {
-    border-bottom: 2px solid #F0F0F0;
-    color: black;
-    font-size: 18px;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    transition: 0.2s ease-in-out;
+    cursor: pointer;
 
     &:hover {
-    color: black;
-    background-color: #CBBA9C;
-    transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        color: #cbba9c;
     }
-}
-`
+
+    @media screen and (max-width: 780px) {
+        border-bottom: 2px solid #f0f0f0;
+        color: black;
+        font-size: 18px;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            color: black;
+            background-color: #cbba9c;
+            transition: 0.2s ease-in-out;
+        }
+    }
+`;
 
 const SignInWrapBottom = styled.div`
-display: none;
+    display: none;
 
-@media screen and (max-width: 780px) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-`
+    @media screen and (max-width: 780px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+`;
 
 const DividerLine = styled.div`
-height: 20px;
-width: 2px;
-background-color: white;
+    height: 20px;
+    width: 2px;
+    background-color: white;
 
-@media screen and (max-width: 780px) {
-display: none;
-}
-`
+    @media screen and (max-width: 780px) {
+        display: none;
+    }
+`;
 
 const Navbar = () => {
-    const quantity = useSelector(state => state.cart.quantity)
-    const quantityWish = useSelector(state => state.wish.quantity)
-    const user = useSelector(state => state.user.currentUser);
+    const quantity = useSelector((state) => state.cart.quantity);
+    const quantityWish = useSelector((state) => state.wish.quantity);
+    const user = useSelector((state) => state.user.currentUser);
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogout = (e) => {
-        e.preventDefault();       
+        e.preventDefault();
         logout(dispatch, user);
-    }
+    };
 
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState('');
 
     // const category = location.pathname.split("/")[2]
 
     const getProducts = () => {
         //fetch(`http://localhost:5000/api/products?category=${category}`)
-        fetch(`https://zarosen-store-to-push-backend.vercel.app/api/products?category=${category}`)   
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         setProducts(data);
-    //     }
-    //   )
-    }
+        fetch(`https://zarosen-store-to-push-backend.vercel.app/api/products?category=${category}`);
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         setProducts(data);
+        //     }
+        //   )
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         getProducts();
-        navigate(`/products/${category}`)
-    }
+        navigate(`/products/${category}`);
+    };
 
-    const[isOpen, setIsOpen] =useState(false)
-    
+    const [isOpen, setIsOpen] = useState(false);
+
     const toggle = () => {
-      setIsOpen(!isOpen) 
-    }
+        setIsOpen(!isOpen);
+    };
 
     return (
-        <Container >
+        <Container>
             <Wrapper>
                 <TopNav>
                     <Left>
-                        <Logo to="/">Zaro<Span>sen</Span></Logo>
+                        <Logo to="/">
+                            Zaro<Span>sen</Span>
+                        </Logo>
                     </Left>
                     <Right>
-                        <Language>
-                            ENG
-                        </Language>
+                        <Language>ENG</Language>
                         <SearchContainer onSubmit={handleSubmit}>
-                            <Input onChange={e => setCategory(e.target.value)}/>
-                            <SearchIcon color="action" style={{fontSize: "18px"}}/>
+                            <Input onChange={(e) => setCategory(e.target.value)} />
+                            <SearchIcon color="action" style={{ fontSize: '18px' }} />
                         </SearchContainer>
                         <SignInWrapTop>
-                        {!user ? (
-                            <MenuItemSignIn to="/login">
-                                Sign In
-                            </MenuItemSignIn>
-                        ) : (
-                            <MenuItemLogout onClick={handleLogout}>
-                                Log Out
-                            </MenuItemLogout>
-                        )
-                        }
+                            {!user ? (
+                                <MenuItemSignIn to="/login">Sign In</MenuItemSignIn>
+                            ) : (
+                                <MenuItemLogout onClick={handleLogout}>Log Out</MenuItemLogout>
+                            )}
                         </SignInWrapTop>
                         <MenuItemBadge to="/wish">
                             <Badge badgeContent={quantityWish} color="primary">
@@ -418,51 +413,42 @@ const Navbar = () => {
                 {/* BOTTOM NAV */}
                 <BottomNav>
                     <MobileIcon onClick={toggle}>
-                        <MenuIcon 
+                        <MenuIcon
                             style={{
-                                fontSize: "2rem", 
-                                margin:"0 5px", 
-                                color:"white"
-                                }}/> Menu
+                                fontSize: '2rem',
+                                margin: '0 5px',
+                                color: 'white',
+                            }}
+                        />{' '}
+                        Menu
                     </MobileIcon>
                     <MenuItemWrapper isOpen={isOpen} onClick={toggle}>
                         <CloseIconWrap>
-                            <CloseIcon style={{fontSize: "2rem"}}/>
+                            <CloseIcon style={{ fontSize: '2rem' }} />
                         </CloseIconWrap>
                         <MenuItemLinks>
-                            <MenuItem to="/products/men">
-                                Men
-                            </MenuItem>
+                            <MenuItem to="/products/men">Men</MenuItem>
                             <DividerLine></DividerLine>
-                            <MenuItem to="/products/women">
-                                Women
-                            </MenuItem>
+                            <MenuItem to="/products/women">Women</MenuItem>
                             <DividerLine></DividerLine>
-                            <MenuItem to="/blogs">
-                                Blogs
-                            </MenuItem>
+                            <MenuItem to="/blogs">Blogs</MenuItem>
                             {/* <DividerLine></DividerLine> */}
                             {/* <MenuItem to="/your-orders">
                                 Ordered
                             </MenuItem> */}
                         </MenuItemLinks>
                         <SignInWrapBottom>
-                        {!user ? (
-                        <MenuItemSignIn to="/login">
-                            Sign In
-                        </MenuItemSignIn>
-                    ) : (
-                        <MenuItemLogout onClick={handleLogout}>
-                            Log Out
-                        </MenuItemLogout>
-                    )
-                    }
-                    </SignInWrapBottom>
+                            {!user ? (
+                                <MenuItemSignIn to="/login">Sign In</MenuItemSignIn>
+                            ) : (
+                                <MenuItemLogout onClick={handleLogout}>Log Out</MenuItemLogout>
+                            )}
+                        </SignInWrapBottom>
                     </MenuItemWrapper>
                 </BottomNav>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

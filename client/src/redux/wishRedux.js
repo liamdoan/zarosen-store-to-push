@@ -1,16 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const wishSlice = createSlice({
-    name:"wish",
+    name: 'wish',
     initialState: {
         products: [],
         quantity: 0,
-        // total: 0 
+        // total: 0
     },
-    reducers: { 
+    reducers: {
         addWish: (state, action) => {
             state.quantity += 1;
-            state.products.push(action.payload)
+            state.products.push(action.payload);
             // state.total += action.payload.price * action.payload.quantity
         },
         // removeProduct:(state) => {
@@ -22,10 +22,9 @@ const wishSlice = createSlice({
             state.products = [];
             state.quantity = 0;
             // state.total = 0;
-        }
-        
-    }
-})
+        },
+    },
+});
 
-export const {addWish, clearWish} = wishSlice.actions
+export const { addWish, clearWish } = wishSlice.actions;
 export default wishSlice.reducer;
