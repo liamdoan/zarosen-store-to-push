@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Announcement from './components/Announcement';
 import Navbar from './components/Navbar';
