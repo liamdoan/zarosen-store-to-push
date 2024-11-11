@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 import { mobile } from '../Responsive'
 import { Link } from 'react-router-dom'
 
@@ -128,6 +129,15 @@ const CategoryItem = ({item}) => {
                 </Info>
         </Container>
     )
+}
+
+CategoryItem.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        img: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired
+    }).isRequired
 }
 
 export default CategoryItem
