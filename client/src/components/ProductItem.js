@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import PropTypes from 'prop-types';
+// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { mobile } from '../Responsive';
@@ -146,6 +147,15 @@ const ProductItem = ({item}) => {
         </SubInfo>
         </ContainerBig>
     )
+}
+
+ProductItem.propTypes = {
+    item: PropTypes.shape({
+        img: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired
+    }).isRequired
 }
 
 export default ProductItem
