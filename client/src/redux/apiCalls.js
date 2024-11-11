@@ -11,7 +11,7 @@ export const login = async (dispatch, user) => {
     }
 } 
 
-export const logout = async (dispatch, user) => {
+export const logout = async (dispatch) => {
     dispatch(logoutUser());
 } 
 
@@ -19,5 +19,6 @@ export const register = async (user) => {
     try {
         await publicRequest.post("auth/register", user)
     } catch(error) {
+        console.error(error)
     }
 }
