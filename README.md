@@ -1,7 +1,7 @@
 A full-stack optimal responsive design online store website with:
 - authentication and payment.
-- REST APIs are to handle CRUD operations and manage products, user data.
-- APIS are tested with Postman.
+- build REST APIs are to handle CRUD operations and manage products, user data.
+- APIs are tested with Postman.
 - ESLint and Prettier are used to enforce coding standards and format.
 
 Stacks:
