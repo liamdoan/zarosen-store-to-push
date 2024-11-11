@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../Responsive';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { clearOrders} from '../redux/yourOrdersRedux';
 import { useDispatch } from 'react-redux';
@@ -23,7 +22,6 @@ ${mobile({
 
 const Title = styled.h1`
 text-align: center;
-
 `
 
 const Top = styled.div`
@@ -207,7 +205,7 @@ cursor: pointer;
 `
 
 const YourOrder = () => {
-    const orders = useSelector(state => state.orders)
+    // const orders = useSelector(state => state.orders)
     const cart = useSelector(state => state.cart)
 
     const wish = useSelector(state => state.wish)
@@ -237,7 +235,7 @@ const YourOrder = () => {
                     <Bottom>
                         <Info>
                             {wish.products.map(product => (
-                                <ProductContainer>
+                                <ProductContainer key={product._id}>
                                     <ProductDetail>
                                         <ImgContainer>
                                             <Img src={product.img}/>
