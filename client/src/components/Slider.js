@@ -5,7 +5,6 @@ import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import { sliderItems } from './Data';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { mobile } from '../Responsive';
 
 const ZoomAnimation = keyframes`
 0% {
@@ -353,7 +352,6 @@ const Slider = () => {
         } else {
             setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
         }
-        console.log(slideIndex)
     }
 
     return (
