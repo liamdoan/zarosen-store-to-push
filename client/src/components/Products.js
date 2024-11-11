@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 import ProductItem from './ProductItem'
 import { mobile } from '../Responsive'
 import { useState, useEffect } from 'react'
@@ -19,7 +20,7 @@ ${mobile({
 })};
 `
 
-const Products = ({category, color, filters, sort}) => {
+const Products = ({category, filters, sort}) => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const [loading, setLoading] = useState(true);
@@ -47,7 +48,7 @@ const Products = ({category, color, filters, sort}) => {
         };
 
         getProducts(); 
-    }, [category, color]);
+    }, [category]);
  
     useEffect(() => {
         category && setFilteredProducts(
@@ -56,7 +57,7 @@ const Products = ({category, color, filters, sort}) => {
                     item[key].includes(value)
                 ))
         );
-    }, [products, category, color, filters]);
+    }, [products, category, filters]);
 
     // filtered by sorting
     useEffect (() => {
@@ -94,6 +95,12 @@ const Products = ({category, color, filters, sort}) => {
         }
         </Container>
     )
+}
+
+Products.propTypes = {
+    category: PropTypes.string,
+    filters: PropTypes.object,
+    sort: PropTypes.string
 }
 
 export default Products
