@@ -1,9 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { addOrders } from '../redux/yourOrdersRedux';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
@@ -58,17 +54,6 @@ z-index: 100;
 `
 
 const Success = () => {
-    const cart = useSelector(state => state.cart)
-
-  // const handleClick = () => {
-  //   dispatch(
-  //     addOrders({...cart})
-  // )
-  // }
-
-    const dispatch = useDispatch()
-    const location = useLocation()
-
     return (
         <Container>
             <H1>PAYMENT SUCCESSFUL</H1>
