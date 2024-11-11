@@ -11,7 +11,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import Wish from './pages/Wish';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Success from './pages/Success';
 import InfiniteBanner from './components/InfiniteBanner';
 import Blog from './components/Blog';
