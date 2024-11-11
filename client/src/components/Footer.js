@@ -259,8 +259,8 @@ const Footer = () => {
                 <Title>Information</Title>
                 <LinkWrap>
                     <LeftColumn>
-                        <LinkItem to="/products/men"> Men's Fashion</LinkItem>   
-                        <LinkItem to="/products/women">Women's Fashion</LinkItem>
+                        <LinkItem to="/products/men">Men&apos;s Fashion</LinkItem>
+                        <LinkItem to="/products/women">Women&apos;s Fashion</LinkItem>
                         <LinkItem to="/">Accessories</LinkItem>
                     </LeftColumn>
                     <RightColumn>
