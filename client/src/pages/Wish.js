@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../Responsive';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { clearWish} from '../redux/wishRedux';
 import { useDispatch } from 'react-redux';
@@ -242,7 +241,6 @@ const Wish = () => {
 
     return (
         <>
-        {/* <h1>WISHLIST PAGE</h1> */}
             <Container>
                 <Wrapper>
                     <Title>YOUR WISHLIST</Title>
@@ -257,7 +255,7 @@ const Wish = () => {
                     <Bottom>
                         <Info>
                             {wish.products.map(product => (
-                                <ProductContainer>
+                                <ProductContainer key={product._id}>
                                     <ProductDetail>
                                         <ImgContainer>
                                             <Img src={product.img}/>
