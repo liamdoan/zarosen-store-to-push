@@ -5,7 +5,7 @@ A full-stack optimal responsive design online store website with:
 - ESLint and Prettier are used to enforce coding standards and format.
 
 Stacks:
-- Frontend: React, styled-component.
+- Frontend: React, Redux, styled-component.
 - Backend: ExpressJS, NodeJS, MongoDB.
 
 To be updating: admin control panel for product CRUD operation, manage user data, statistic, etc.
